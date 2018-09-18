@@ -102,6 +102,29 @@ class queue(object):
                 tmp = self.stack2.pop()
                 self.stack1.push(tmp)
 
+# Queue，第二种实现方法。不用来回倒stack
+class Queue2(object):
+    def __init__(self):
+        self.stack1 = stack()
+        self.stack2 = stack()
+
+    # append queue时，直接添加在stack1中
+    def append(self, dataOrNode):
+        self.stack1.push(dataOrNode)
+
+    # delete queue时，stack2不为空则将stack2最顶上的node pop出。stack2为空，则将stack1中所有node倒到stack2中，再将stack2最顶node pop出。
+    def delete(self):
+        if self.stack2.isEmpty():
+            if self.stack1.isEmpty():
+                return 'Info from class.Queue2: empty queue'
+            else:
+                while not self.stack1.isEmpty():
+                    tmp = self.stack1.pop()
+                    self.stack2.push(tmp)
+                self.stack2.pop()
+        else:
+            self.stack2.pop()
+
 if __name__=='__main__':
     print('Stack:')
     stack1 = stack()
@@ -112,7 +135,7 @@ if __name__=='__main__':
     print(stack1.__repr__())
     stack1.pop()
     print(stack1.__repr__())
-    print('Queue:')
+    print('Queue_1:')
     queue1 = queue()
     print(queue1.__repr__())
     print(queue1.delete())
@@ -126,4 +149,13 @@ if __name__=='__main__':
     print(queue1.__repr__())
     queue1.delete()
     print(queue1.__repr__())
+    print('Queue_2:')
+    queue2 = Queue2()
+    print(queue2.delete())
+    queue2.append(4)
+    queue2.append(5)
+    queue2.append(6)
+    queue2.delete()
+    queue2.delete()
+    queue2.delete()
 
