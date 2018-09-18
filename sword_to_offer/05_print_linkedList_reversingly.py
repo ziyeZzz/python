@@ -43,12 +43,12 @@ class linkedList(object):
             node = node._next
         return nlist
 
-    def reverse_print_2(self):
-        if self.isEmpty():
-            return "the chain table is empty"
-        def print_node(node):
-            while node:
-                print(print_node(node._next)+' ')
+    # def reverse_print_2(self):
+    #     if self.isEmpty():
+    #         return "the chain table is empty"
+    #     def print_node(node):
+    #         while node:
+    #             print(print_node(node._next)+' ')
 
 
     def isEmpty(self):
