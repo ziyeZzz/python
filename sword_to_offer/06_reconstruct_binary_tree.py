@@ -16,3 +16,66 @@ Q:输入某二叉树的前序遍历和中序遍历的结果，请重建出该二
     中序：左>根>右
     后续：左>右>根
 '''
+class tree_node(object):
+    def __init__(self, data):
+        self.data = data
+        self._left_child = None
+        self._right_child = None
+
+    def __repr__(self):
+        return str(self.data)
+
+class binary_tree(object):
+    def __init__(self, dataOrNode):
+        if isinstance(dataOrNode, tree_node):
+            self.root = dataOrNode
+        else:
+            self.root = tree_node(dataOrNode)
+
+    def add_left_child(self, parent_node, dataOrNode):
+        if parent_node._left_child == None:
+            return 'Error: already has left child.'
+
+        if isinstance(dataOrNode, tree_node):
+            parent_node._left_child = dataOrNode
+        else:
+            parent_node._left_child = tree_node(dataOrNode)
+
+    def add_right_child(self, parent_node, dataOrNode):
+        if parent_node._right_child == None:
+            return 'Error: already has right child.'
+
+        if isinstance(dataOrNode, tree_node):
+            parent_node._right_child = dataOrNode
+        else:
+            parent_node._right_child = tree_node(dataOrNode)
+
+    # def breadth_first_print(self):
+    #
+
+
+def reconstruct_binaryTree(tree, pre_order_list, mid_order_list):
+    if len(pre_order_list)>0 and len(mid_order_list)>0:
+        root = pre_order_list[0]
+        if tree == None:
+            tree = binary_tree(root)
+
+        root_index = find_index(root, mid_order_list)
+        left_child_tree = mid_order_list[:root_index]
+        right_child_tree = mid_order_list[root_index+1:]
+
+
+    else:
+        return 'Error:'
+
+
+def find_index(m, list):
+    index = -1
+    for i in range(0, len(list)):
+        if list[i] == m:
+            index = i
+    return index
+
+
+
+if __name__=='__main__':
