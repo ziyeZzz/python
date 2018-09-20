@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
-#栈的实现（pop，push），用两个栈实现队列
+# 此题主要是栈和队列的互相实现
+# 栈的实现（pop，push），用两个栈实现队列
 '''
 Q:用两个栈实现一个队列，队列的声明如下，
 请实现它的两个函数appendTail和deleteHead,
@@ -15,6 +16,7 @@ template <> class CQueue{
         stack<T> stack2;
 };
 '''
+
 class Node(object):
     def __init__(self, data):
         self.data = data
