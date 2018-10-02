@@ -65,6 +65,37 @@ def merge(l1, l2):
             list.append(node_2)
     return list
 
+# 用递归来做, 注意结束返回关系。
+def merge2(head1, head2):
+    if head1 == None:
+        return head2
+    if head2 == None:
+        return head1
+    new_head = None
+    if head1.data < head2.data:
+        new_head = head1
+        new_head._next = merge2(head1._next, head2)
+    else:
+        new_head = head2
+        new_head._next = merge2(head1, head2._next)
+    return new_head
+
+def call_merge2(l1, l2):
+    if l1.length == 0 and l2.length == 0:
+        return 'two empty linked list'
+    elif l1.length == 0:
+        return l2
+    elif l2.length == 0:
+        return l1
+    else:
+        head = merge2(l1.head, l2.head)
+        list = ''
+        while head:
+            list += str(head.data) + ' '
+            head = head._next
+        return list
+
+
 if __name__ == '__main__':
     l1 = linked_list()
     l2 = linked_list()
@@ -74,5 +105,6 @@ if __name__ == '__main__':
         l2.append(i)
     l3 = merge(l1, l2)
     print(l3.__repr__())
+    print(call_merge2(l1, l2))
 
 
