@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
 # 此题最主要的是各种输入情况都要考虑到。如底数为0，指数为负时的错误处理。
 '''
-Q: 实现函数double Power(double base, int exponent)，求base的exponent次方。
+Q: 数值的整数次方
+实现函数double Power(double base, int exponent)，求base的exponent次方。
 不得使用库函数，同时不需要考虑大数问题。
 '''
 
