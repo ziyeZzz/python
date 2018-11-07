@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# 梯度下降和随机梯度下降法求解
 # Q:argmin1/2*[(x1+x2-4)^2 + (2x1+3x2-7)^2 + (4x1+x2-9)^2]
 
 import random
