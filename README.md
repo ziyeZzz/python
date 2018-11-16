@@ -1,2 +1,2 @@
 # python_practice
-QAQ
+Good Good Study, Day Day Up~
