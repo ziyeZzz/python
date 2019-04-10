@@ -7,5 +7,10 @@
 '''
 prices=[7,1,5,3,6,4]
 def maxProfit(prices):
-    baseprice=prices[0]
-    low_price=prices[0]
+    best_price=0
+    min_price=prices[0]
+    for price in prices:
+        min_price=min(price,min_price)
+        best_price=max(best_price,price-min_price)
+    return best_price
+print(maxProfit(prices))
