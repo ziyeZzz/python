@@ -8,12 +8,13 @@
 '''
 nums=[0,0,1,1,1,2,2,3,3,4]
 def removeDuplicates(nums):
+    # 如果nums不为空
     if nums:
         i = 0
         for n in nums:
             if n != nums[i]:
                 i += 1
-                nums[i]=n
+                nums[i]=n#覆盖之前的数
         return i+1
     else:
         return 0

@@ -25,6 +25,7 @@ def isValid(s):
         seq = ['(','[','{']
         i = 0
         while i < len(s):
+            # 构造相反的括号串
             if s[i] in seq:
                 if s[i]=='(':
                     tmp.append(')')

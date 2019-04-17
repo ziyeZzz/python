@@ -19,4 +19,11 @@ minStack.getMin();   --> 返回 -2.
 class MinStack(object):
     def __init__(self):
         self.stack=[]
-        self.min=None
+    def push(self,x):
+        self.stack.append(x)
+    def pop(self):
+        self.stack=self.stack[:-1]
+    def top(self):
+        return self.stack[0]
+    def getMin(self):
+        return min(self.stack)
